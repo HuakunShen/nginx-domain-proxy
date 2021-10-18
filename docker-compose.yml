@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  proxy:
+    image: huakunshen/nginx-certbot
+    restart: unless-stopped
+    volumes:
+      - ./config:/etc/nginx/sites-available
+      - ./config/jenkins.autoronto.cc:/etc/nginx/sites-available/jenkins.autoronto.cc
+      - ./letsencrypt:/etc/letsencrypt
+      - ./entrypoint.sh:/entrypoint.sh
+    entrypoint: sh /entrypoint.sh
+    network_mode: 'host'
