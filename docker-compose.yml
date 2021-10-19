@@ -5,7 +5,6 @@ services:
     restart: unless-stopped
     volumes:
       - ./config:/etc/nginx/sites-available
-      - ./config/jenkins.autoronto.cc:/etc/nginx/sites-available/jenkins.autoronto.cc
       - ./letsencrypt:/etc/letsencrypt
       - ./entrypoint.sh:/entrypoint.sh
     entrypoint: sh /entrypoint.sh
